@@ -12,8 +12,8 @@ describe("openai to gemini test", () => {
     const fetchMocker = new MockFetch()
 
     for (const [geminiModel, openaiModel] of [
-      ["gemini-1.0-pro-latest", "gpt-3.5-turbo"],
-      ["gemini-1.0-pro-latest", "gpt-4"],
+      ["gemini-1.5-pro-exp-0827", "gpt-3.5-turbo"],
+      ["gemini-1.5-pro-exp-0827", "gpt-4"],
       ["gemini-1.5-pro-latest", "gpt-4-turbo-preview"],
     ]) {
       beforeEach(() => {
