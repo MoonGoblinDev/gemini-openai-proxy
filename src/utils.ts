@@ -74,7 +74,7 @@ export function openAiMessageToGeminiMessage(messages: OpenAI.Chat.ChatCompletio
 }
 
 export function genModel(req: OpenAI.Chat.ChatCompletionCreateParams): [GeminiModel, GenerateContentRequest] {
-  const model: GeminiModel = ModelMapping[req.model] ?? "gemini-1.0-pro-latest"
+  const model: GeminiModel = ModelMapping[req.model] ?? "gemini-1.5-pro-exp-0827"
 
   let functions: OpenAI.Chat.FunctionObject[] =
     req.tools?.filter((it) => it.type === "function")?.map((it) => it.function) ?? []
@@ -115,14 +115,14 @@ export function genModel(req: OpenAI.Chat.ChatCompletionCreateParams): [GeminiMo
 }
 export type GeminiModel =
   | "gemini-1.0-pro-vision-latest"
-  | "gemini-1.0-pro-latest"
+  | "gemini-1.5-pro-exp-0827"
   | "gemini-1.0-ultra-latest"
   | "gemini-1.5-pro-latest"
   | "gemini-1.5-flash-latest"
   | "text-embedding-004"
 
 export const ModelMapping: Record<string, GeminiModel> = {
-  "gpt-3.5-turbo": "gemini-1.0-pro-latest",
+  "gpt-3.5-turbo": "gemini-1.5-pro-exp-0827",
   "gpt-4": "gemini-1.5-pro-latest",
   "gpt-4o": "gemini-1.5-flash-latest",
   "gpt-4-vision-preview": "gemini-1.0-pro-vision-latest",
